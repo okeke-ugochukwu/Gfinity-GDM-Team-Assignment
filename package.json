@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@nuxt/cli": "^2.15.8",
+    "@nuxtjs/sanity": "^1.2.3",
+    "@sanity/client": "^3.3.6",
     "@sanity/image-url": "^1.0.1",
     "core-js": "^3.19.3",
     "node-sass": "^7.0.1",
