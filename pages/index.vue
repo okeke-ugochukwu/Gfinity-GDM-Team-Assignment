@@ -1,14 +1,20 @@
 <template>
-  <!-- <Tutorial/> -->
-  <section>
-    <h1>
-      Gfinity GDM Team Assignment
-    </h1>
+  <div class="base">
+    
+    <headerBar />
 
-    <p>
-      Successfully Setup Nuxt App
-    </p>
-  </section>
+    <!-- main content -->
+    <main>
+      <titleBar/>
+
+      <section class="player-list">
+        <playerBar />
+      </section>
+
+    </main>
+
+    <footerBar />
+  </div>
 </template>
 
 <script>
