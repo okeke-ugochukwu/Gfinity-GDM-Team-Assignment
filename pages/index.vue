@@ -8,7 +8,11 @@
       <titleBar/>
 
       <section class="player-list">
-        <playerBar />
+        
+        <playerStatsBar 
+          v-for="player in this.players" :key="player._id" 
+          :player="player"
+        />
       </section>
 
     </main>
@@ -27,9 +31,7 @@
   })
   const query = '*[_type == "fifaCard"]'
 
-  client.fetch(query).then ((cards) => {
-    console.log(cards)
-  })
+  
   
 
   export default {
@@ -40,6 +42,13 @@
         players: []
       }
     },
+
+    async fetch() {
+      await client.fetch(query)
+        .then ((players) => {
+          this.players = players
+        })
+    }
   
   }
 </script>

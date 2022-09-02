@@ -22,7 +22,7 @@ button {
 // =========== CONTAINER ELEMENT
 .base {
     // @include showAll();
-    @apply w-full min-w-max h-screen;
+    @apply w-full min-w-max h-max;
     background: $grey;
 }
 
@@ -126,7 +126,7 @@ main {
     }
 }
 
-.player-bar {
+.player-stats-bar {
     @apply 
     text-white font-normal 
     py-[12px]
@@ -141,14 +141,15 @@ main {
             &:first-child {
                 @apply
                 flex items-center
-                w-[20%] text-[10px]
+                text-[10px] w-1/5
                 font-bold
             }
     
             // player attributes
             &:nth-child(2) {
                 @apply
-                flex w-max text-xs
+                flex justify-between
+                w-max text-xs
             }
         }
     }
@@ -159,11 +160,11 @@ main {
 
         li {
             @apply 
-            flex items-center 
+            flex items-center justify-center
             inline-block h-7
             text-xs font-bold
-            rounded mr-[7px] ml-[13px]
-            px-4 py-2;
+            rounded mr-[7px] ml-[11px]
+            w-[46px] py-2;
         
 
             img {
