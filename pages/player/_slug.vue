@@ -22,7 +22,7 @@
 
         <section class="player-summary">
             <div class="palyer-summary_titl">
-
+              
             </div>
 
             <div class="player-summary_deets">
@@ -37,9 +37,26 @@
   </template>
   
   <script>
-  export default {
-    name: 'IndexPage'
-  }
+    import client from '@/sanityConfig/index.js'
+    const query = '*[_type == "fifaCard"]'
+
+    export default {
+      name: 'PlayerDetailsPage',
+      
+      data() {
+        return {
+          player: {}
+        }
+      },
+
+      async asyncData({ params }) {
+        await client.fetch(query)
+        .then ((players) => {
+          this.player = players
+        })
+      }
+
+    }
   </script>
   
   
