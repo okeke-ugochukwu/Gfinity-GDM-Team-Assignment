@@ -26,7 +26,11 @@ Got Manrope link google fonts (https://fonts.google.com/specimen/Manrope?query=m
 Setup font globally in nuxt.config.js
 
 # CSS setup
-Installed sass-loader and node-sass
-Setup style directory `assets` directory, setup scss files
+Installed sass-loader and node-sass.
+Setup style directory in `assets` directory, setup scss files
 Added main scss file to nuxt.config.js
 Installed and setup tailwind module
+
+#Sanity Setup
+Installed sanity client globally.
+Setup module in `sanityConfig` directory.
