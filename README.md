@@ -18,19 +18,19 @@ $ npm run generate
 ```
 
 # Git setup
-Setup remote public repositoy (https://github.com/okeke-ugochukwu/Gfinity-GDM-Team-Assignment.git)
+Setup remote public repositoy (https://github.com/okeke-ugochukwu/Gfinity-GDM-Team-Assignment.git).
 Setup a deploy script at root of directory (deploy.sh)
 
 # Font setup 
-Got Manrope link google fonts (https://fonts.google.com/specimen/Manrope?query=manrope)
+Got Manrope link google fonts (https://fonts.google.com/specimen/Manrope?query=manrope).
 Setup font globally in nuxt.config.js
 
 # CSS setup
 Installed sass-loader and node-sass.
-Setup style directory in `assets` directory, setup scss files
-Added main scss file to nuxt.config.js
-Installed and setup tailwind module
+Setup style directory in `assets` directory, setup scss files.
+Added main scss file to nuxt.config.js.
+Installed and setup tailwind module.
 
-# Sanity Setup
+# Sanity setup
 Installed sanity client globally.
 Setup module in `sanityConfig` directory.
