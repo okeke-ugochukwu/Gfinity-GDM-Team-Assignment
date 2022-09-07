@@ -31,6 +31,6 @@ Setup style directory in `assets` directory, setup scss files
 Added main scss file to nuxt.config.js
 Installed and setup tailwind module
 
-#Sanity Setup
+# Sanity Setup
 Installed sanity client globally.
 Setup module in `sanityConfig` directory.
