@@ -38,6 +38,7 @@
     async fetch() {
       await client.fetch(query)
         .then ((players) => {
+         console.log(players)
           this.players = players
         })
     }

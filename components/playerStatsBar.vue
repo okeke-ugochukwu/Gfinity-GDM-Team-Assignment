@@ -1,5 +1,5 @@
 <template>
-    <NuxtLink :to="player.slug.current">
+    <NuxtLink :to="player.name.toLowerCase().replace(/\s/g, '-')">
         <div class="player-stats-bar">
             <div class="centered_inner">
                 <div>

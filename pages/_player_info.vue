@@ -1,5 +1,6 @@
 <template>
   <div class="base">
+
     
     <headerBar />
 
@@ -12,7 +13,9 @@
         </div>
 
         <div class="player-cBoard_attr">
+         {{ playerInView }}
 
+         heree
         </div>
 
         <div class="player-cBoard_attr2">
@@ -22,7 +25,6 @@
 
       <section class="player-summary">
           <div class="palyer-summary_titl">
-            {{players}}
           </div>
 
           <div class="player-summary_deets">
@@ -40,25 +42,34 @@
   import client from '@/sanityConfig/index.js'
   const query = '*[_type == "fifaCard"]'
 
-  export default {
-    name: 'PlayerDetailsPage',
-    
-    data() {
-      return {
-        player: [],
-        players: {}
-      }
-    },
+   export default {
+      name: 'PlayerDetailsPage',
+      
+      data() {
+         return {
+            playerInView: {}
+         }
+      },
 
-    async asyncData({ params }) {
-      await client.fetch(query)
-      .then ((players) => {
-        const player = players.filter(player => player.slug.current = params)
-        return players
-      })
-    }
+      async asyncData({ params }) {
+         //get player slug from url and merge into components 'data()'
+         const player = params.player_info
+         return { player }
+      },
 
-  }
+      async fetch() {
+         await client.fetch(query)
+            .then ((players) => {
+               //use the same codeblock used to generate the url of the player's details in 'playerStatsBar.vue' 
+               //to search the returned players from sanity client and find the player
+               const playerInView = players.filter(player => player.name.toLowerCase().replace(/\s/g, '-') === this.player);
+
+               this.playerInView = playerInView
+            })
+         }
+
+
+   }
 </script>
 
 

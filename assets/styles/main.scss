@@ -201,6 +201,14 @@ main {
 
         }
     }
+
+    &:hover {
+      @apply 
+      scale-[1.03] border;
+      background: #44c99430;
+
+     
+    }
 }
 
 
