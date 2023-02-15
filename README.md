@@ -29,7 +29,10 @@ Setup font globally in nuxt.config.js
 Installed sass-loader and node-sass.
 Setup style directory in `assets` directory, setup scss files.
 Added main scss file to nuxt.config.js.
-Installed and setup tailwind module.
+Installed and setup tailwind module. <br />
+
+[Updated styling. App now runs entirely on inline tailwind]
+
 
 # Sanity setup
 Installed sanity client globally.
