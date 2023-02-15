@@ -1,42 +1,58 @@
 <template>
-    <div class="title-bar">
-        <div class="centered_inner">
-            <div>
-                Name
-                
-                <!-- controls -->
-                <div class="title-bar__controls">
-                    <button>
-                        <img src="@/assets/imgs/up-arrow.svg" alt="up"></img>
-                    </button>
-                    
-                    <button>
-                        <img src="@/assets/imgs/down-arrow.svg" alt="down"></img>
-                    </button>
-                </div>
-            </div>
-            
-            <div>
-                <ul>
-                    <li v-for="item in this.titleBarItems">
 
-                        {{item}}
+   <!-- TITLE BAR -->
+    <div class="text-white font-normal pb-[9.13px] pt-[34px] bg-black lg:pt-[57px]">
 
-                        <div class="title-bar__controls">
-                            <button>
-                                <img src="@/assets/imgs/up-arrow.svg" alt="up"></img>
-                            </button>
-                            
-                            <button>
-                                <img src="@/assets/imgs/down-arrow.svg" alt="down"></img>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+      <!-- CENTERED INNER -->
+      <div class="w-[77%] m-auto flex justify-between">
+
+         <!-- NAME TITLE -->
+         <div class="flex items-center w-[20%]">
+            Name
             
-        </div>
+            <!-- controls -->
+            <div class="flex flex-col ml-[4px] text-xs">
+               <button>
+                  <img src="@/assets/imgs/up-arrow.svg" alt="up" />
+               </button>
+               
+               <button>
+                  <img src="@/assets/imgs/down-arrow.svg" alt="down" />
+               </button>
+            </div>
+         </div>
+         
+         <!-- RATING TITLES -->
+         <div class="flex w-max">
+            <ul class="flex content-between">
+               <li 
+                  class="
+                     flex items-center h-7 text-xs [&:not(:first-child)]:px-[14px] 
+                     first:pr-[14px] border-r border-r-[#606060]
+                  "
+                  v-for="item in this.titleBarItems" :key="item"
+               >
+
+                     {{item}}
+
+                     <!-- CONTROLS -->
+                     <div class="flex flex-col ml-[4px] text-xs">
+                        <button>
+                           <img src="@/assets/imgs/up-arrow.svg" alt="up" />
+                        </button>
+                        
+                        <button>
+                           <img src="@/assets/imgs/down-arrow.svg" alt="down" />
+                        </button>
+                     </div>
+               </li>
+            </ul>
+         </div>
+
+      </div>
+
     </div>
+
 </template>
 
 <script>

@@ -1,8 +1,8 @@
 <template>
-    <div class="ham-burger">
-        <button>
-        <img src="@/assets/imgs/menu.svg" alt="menu-icon">
-    </button>
+    <div class="w-max h-max bg-rs-grey1">
+         <button class="px-[25px] py-[27px]">
+            <img src="@/assets/imgs/menu.svg" alt="menu-icon">
+         </button>
     </div>
 </template>
 

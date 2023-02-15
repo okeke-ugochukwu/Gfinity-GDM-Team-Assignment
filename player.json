@@ -1,0 +1,172 @@
+[
+   {
+      "_createdAt": "2022-03-10T05:26:58Z",
+      "_id": "02d2b8b4-9b0e-4ea4-9f8a-5a273c16e6df",
+      "_rev": "KOuwTsQE1Q1rVARjwopT1M",
+      "_type": "fifaCard",
+      "_updatedAt": "2022-04-01T06:07:42Z",
+      "age": "31 years old",
+      "cardImage": {
+         "_type": "image",
+         "asset": {
+            "_ref": "image-2341243767e7cfa8b6bfc45d5a8029048b0957e6-716x1000-png",
+            "_type": "reference"
+         }
+      },
+      "cardType": "Base",
+      "club": "Rangers",
+      "description": "Aaron Ramsey (OVR 80) - check out the stats of the Rangers CM and how he can fit into your Ultimate Team on FIFA 22.",
+      "gameVersion": 22,
+      "goalkeeperStatistics": {},
+      "height": "183cm | 6'0\"",
+      "isGoalkeeper": false,
+      "league": "Scottish Premiership (SPFL)",
+      "name": "Aaron Ramsey",
+      "nation": "Wales",
+      "position": "CM",
+      "rating": 80,
+      "skillMoves": 3,
+      "slug": {
+         "_type": "slug",
+         "current": "aaron-ramsey-rangers-80-ovr"
+      },
+      "statistics": {
+         "defense": {
+            "average": 66,
+            "defAwareness": 68,
+            "heading": 55,
+            "interceptions": 66,
+            "slidingTackle": 67,
+            "standingTackle": 67
+         },
+         "dribbling": {
+            "agility": 73,
+            "average": 83,
+            "balance": 80,
+            "ballControl": 84,
+            "composure": 80,
+            "dribbling": 85,
+            "reactions": 76
+         },
+         "pace": {
+            "acceleration": 63,
+            "average": 66,
+            "sprintSpeed": 69
+         },
+         "passing": {
+            "average": 81,
+            "crossing": 75,
+            "curve": 83,
+            "freeKick": 73,
+            "longPassing": 81,
+            "shortPassing": 85,
+            "vision": 82
+         },
+         "physical": {
+            "aggression": 68,
+            "average": 66,
+            "jumping": 63,
+            "stamina": 65,
+            "strength": 66
+         },
+         "shooting": {
+            "average": 70,
+            "finishing": 61,
+            "longShot": 77,
+            "penalties": 75,
+            "positioning": 78,
+            "shotPower": 80,
+            "volleys": 77
+         }
+      },
+      "strongFoot": "right",
+      "weakFoot": 3,
+      "workRatesAttacking": "Medium",
+      "workRatesDefensive": "Medium"
+   },
+   {
+      "_createdAt": "2022-03-14T03:21:25Z",
+      "_id": "6c41cde7-9aeb-4ab6-9595-152e42f0c752",
+      "_rev": "1fgBIsL30crhoKxgzcd79f",
+      "_type": "fifaCard",
+      "_updatedAt": "2022-04-01T06:04:48Z",
+      "age": "\n N\\A\n ",
+      "cardImage": {
+         "_type": "image",
+         "asset": {
+            "_ref": "image-29da54ffd5c2885d434d742e61f79fc54420198b-480x680-png",
+            "_type": "reference"
+         }
+      },
+      "cardType": " TOTM",
+      "club": "Piemonte Calcio",
+      "description": "Aaron Ramsey (OVR 80) - check out the stats of the Piemonte Calcio CM and how he can fit into your Ultimate Team on FIFA 22.",
+      "gameVersion": 22,
+      "goalkeeperStatistics": {},
+      "height": "Right ",
+      "isGoalkeeper": false,
+      "league": "Serie A TIM",
+      "name": "Aaron Ramsey",
+      "nation": "Wales",
+      "position": "CM",
+      "rating": 80,
+      "skillMoves": 3,
+      "slug": {
+         "_type": "slug",
+         "current": "aaron-ramsey-80-ovr"
+      },
+      "statistics": {
+         "defense": {
+            "average": 66,
+            "defAwareness": 68,
+            "heading": 55,
+            "interceptions": 66,
+            "slidingTackle": 67,
+            "standingTackle": 67
+         },
+         "dribbling": {
+            "agility": 73,
+            "average": 83,
+            "balance": 80,
+            "ballControl": 84,
+            "composure": 80,
+            "dribbling": 85,
+            "reactions": 76
+         },
+         "pace": {
+            "acceleration": 63,
+            "average": 66,
+            "sprintSpeed": 69
+         },
+         "passing": {
+            "average": 81,
+            "crossing": 75,
+            "curve": 83,
+            "freeKick": 73,
+            "longPassing": 81,
+            "shortPassing": 85,
+            "vision": 82
+         },
+         "physical": {
+            "aggression": 68,
+            "average": 66,
+            "jumping": 63,
+            "stamina": 65,
+            "strength": 66
+         },
+         "shooting": {
+            "average": 70,
+            "finishing": 61,
+            "longShot": 77,
+            "penalties": 75,
+            "positioning": 78,
+            "shotPower": 80,
+            "volleys": 77
+         }
+      },
+      "strongFoot": "right",
+      "weakFoot": 3,
+      "workRatesAttacking": "Medium",
+      "workRatesDefensive": "Medium"
+   }
+]

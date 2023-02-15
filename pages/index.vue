@@ -1,13 +1,16 @@
 <template>
-  <div class="base">
+   <!-- APP BASE -->
+  <div class="w-full min-w-max h-max bg-rs-grey">
     
     <headerBar />
 
     <!-- main content -->
-    <main>
+    <main class="w-[1024px] m-auto pt-[66px]">
       <titleBar/>
+      
+      <section v-if="$fetchState.pending">Getting players</section>
 
-      <section class="player-list">
+      <section v-else class="player-list">
         
         <playerStatsBar 
           v-for="player in this.players" :key="player._id" 
