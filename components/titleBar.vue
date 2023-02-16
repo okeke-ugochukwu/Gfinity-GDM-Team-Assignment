@@ -56,17 +56,16 @@
 </template>
 
 <script>
-    export default {
-        name: "titleBar",
+   import atrrTitleItems from "../data/attributes"
 
-        data() {
-            return {
-                titleBarItems: [
-                    'OVR', 'POS', 'Type', 'PAC', 'SHO', 'PAS', 'DRI', 'DEF', 'PHY', 'WR'   
-                ]
-                  }
+    export default {
+      name: "titleBar",
+
+      data() {
+         return {
+               titleBarItems: atrrTitleItems
             }
-           
-    }
+         }
+      }
 </script>
 

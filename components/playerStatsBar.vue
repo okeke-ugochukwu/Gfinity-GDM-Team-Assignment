@@ -82,9 +82,7 @@
 
         data() {
          return {
-               titleBarItems: [
-                  '95', 'RW', 'RW', '85', '92', '91', '95', '34', '65', 'ML'   
-               ],
+              
 
             //    playerAttributs: [
             //       this.player.rating,
