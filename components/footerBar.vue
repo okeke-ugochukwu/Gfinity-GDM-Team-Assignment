@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer class="pt-[66px] py-[50px] bg-black">
 
     </footer>
 </template>

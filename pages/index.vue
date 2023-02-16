@@ -1,26 +1,35 @@
 <template>
-   <!-- APP BASE -->
-  <div class="w-full min-w-max h-max bg-rs-grey">
-    
-    <headerBar />
+   <!-- BASE -->
+  <div class="w-full min-w-max min-h-screen bg-rs-grey py-[0.05px]">
+      <headerBar />
 
-    <!-- main content -->
-    <main class="w-[1024px] m-auto pt-[66px]">
-      <titleBar/>
+      <loader v-if="$fetchState.pending">
+         <img 
+            src="@/assets/imgs/RS-logo.png" alt="real-sport" 
+            class="w-[100px] m-auto animate-pulse"
+         />
+      </loader>
+
+      <loader v-else-if="$fetchState.error">
+         Something went wrong.
+      </loader>
+
+
+      <!-- main content -->
+      <main v-else class="w-[1024px] m-auto pt-[66px]">
+         <titleBar/>
       
-      <section v-if="$fetchState.pending">Getting players</section>
+         <section class="player-list">
+            
+            <playerStatsBar 
+               v-for="player in this.players" :key="player._id" 
+               :player="player"
+            />
+         </section>
 
-      <section v-else class="player-list">
-        
-        <playerStatsBar 
-          v-for="player in this.players" :key="player._id" 
-          :player="player"
-        />
-      </section>
+         <footerBar />
+      </main>
 
-    </main>
-
-    <footerBar />
   </div>
 </template>
 
@@ -41,7 +50,6 @@
     async fetch() {
       await client.fetch(query)
         .then ((players) => {
-         console.log(players)
           this.players = players
         })
     }

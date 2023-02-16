@@ -1,67 +1,116 @@
 <template>
-  <div class="w-full min-w-max h-max bg-rs-grey">
+   <!-- BASE -->
+   <div class="w-full min-w-[375px] min-h-screen bg-[#44444B] py-[0.05px]">
+      <headerBar />
 
-    
-    <headerBar />
+      <loader v-if="$fetchState.pending">
+         <img 
+            src="@/assets/imgs/RS-logo.png" alt="real-sport" 
+            class="w-[100px] m-auto animate-pulse"
+         />
+      </loader>
 
-    
-    <main class="w-full min-h-screen m-auto pt-[66px] bg-black">
+      <loader v-else-if="$fetchState.error">
+         Something went wrong.
+      </loader>
+      
+      <main v-else class="max-w-[1024px] min-h-screen m-auto pt-[66px] bg-black " >
 
-      <!-- PLAYER ATTR BOARD -->
-      <section class="bg-rs-grey w-[91.73%] m-auto mt-[19px] rounded-[12.66px] p-3">
-         <div v-if="$fetchState.pending">Fetching player</div>
-         <div v-else-if="$fetchState.error">Something went wrong</div>
-         
-         <!-- PLAYER IMAGE + ATTRIBUTES -->
-         <div  v-else class="w-full">
-
-            <!-- IMAGE -->
-            <div class="w-full mb-[20px]">
-               <img 
-                  :src="urlFor(playerInView[0].cardImage)" :alt="playerInView[0].name.toLowerCase().replace(/\s/g, '-') + '-card'"
-                  class="w-[182px] m-auto"
+         <div class="w-[91.73%] m-auto lg:px-[23px] lg:w-full">
+            <!-- PLAYER ATTR BOARD -->
+            <section class="
+               attributes-board  mt-[19px] rounded-[12.66px] p-3 mb-[43px] 
+               lg:flex gap-[54px] lg:pb-[81px] lg:mt-[66px] xl:w-full" 
+               > 
+               <!-- IMAGE -->
+               <div class="
+                  min-w-[182px] w-1/2 m-auto lg:w-max-[182px] mb-[20px] 
+                  lg:mb-0 lg:m-0 lg:   max-w-[182px]"
                >
-            </div>
+                  <img 
+                     :src="urlFor(playerInView[0].cardImage)" :alt="playerInView[0].name.toLowerCase().replace(/\s/g, '-') + '-card'"
+                     class="w-full"
+                  >
+               </div>
 
-            <!-- ATTRIBUTES -->
-               <div class="attributes_list grid grid-cols-3 gap-x-3 gap-y-[25px]">
-                  <ul v-for="attribute in Object.entries( retouchedStats(playerInView[0].statistics) )" :key="attribute">
-                     <li>
-                        {{ attribute[0].slice(0, 3).toUpperCase(  ) }}
+               <!-- ATTRIBUTES -->
+               <div class="attributes_list grid grid-cols-3 gap-x-3 gap-y-[25px]
+                     lg:grid-cols-6"
+                  >
+                  <ul
+                     v-for="attribute in Object.entries( retouchedStats(playerInView[0].statistics) )" :key="attribute"
+                     class="inline-block text-white"
+                  >
+                     <li class="
+                        flex justify-between items-center px-[0]
+                        font-bold text-sm border-y-2 border-solid border-white py-[6px]    
+                        lg:min-w-[102px]"
+                     >
+                        {{ attribute[0].slice(0, 3).toUpperCase() }}
                      </li>
 
-                     <li v-for="listItem in Object.entries(retouchedObject(attribute[1]))" :key="listItem">
-                        <span>{{ listItem[0].split(/(?=[A-Z])/).join(' ').replace(/(^\w|\s\w)/g, m => m.toUpperCase()) }}</span>
-                        <span> {{ listItem[1] }} </span>
+                     <li 
+                        v-for="listItem in Object.entries(retouchedObject(attribute[1]))" :key="listItem" 
+                        class="flex justify-between items-center py-[12.5px] px-[0] lg:min-w-[102px]
+                        [&:nth-child(2)]:pt-[16px]  "
+                     >
+                        <span class="inline-block font-bold text-[10px]">{{ listItem[0].split(/(?=[A-Z])/).join(' ').replace(/(^\w|\s\w)/g, m => m.toUpperCase()) }}</span>
+                        <span class="inline-block font-bold text-sm"> {{ listItem[1] }} </span>
                      </li>
                   </ul>
-
-                  
                </div>
+            </section>
+  
+
+            <!-- PLAYER SUMMARY -->
+            <section class="text-white lg:pl-[33px]">
+
+               <!-- PLAYER NAME -->
+               <div class="flex items-end lg:mb-[45px]">
+                  <h1 class="text-3xl font-bold mr-2.5">
+                     {{ playerInView[0].name }}
+                  </h1>
+
+                  <nuxt-link 
+                     to="/" 
+                     class="inline-block text-[#848282] pb-[3px]
+                     text-xs border-b-[0.5px] border-dashed"
+                  >
+                     View all cards
+                  </nuxt-link>
+               </div>
+
+               <!-- PLAYER DETAILS -->
+               <div class="">
+                  <ul 
+                     class="lg:flex"
+                  >
+
+                     <li 
+                        v-for="listItem in Object.entries(playerCompiledSummary(playerInView[0]))" :key="listItem" 
+                        class="flex justify-between text-sm py-[17px] border-b-2 border-solid border-[#44444B]
+                        lg:flex-col lg:border-b-0 lg:[&:not(:last-child)]:border-r-2 
+                        lg:[&:not(:first-child)]:px-4 lg:[&:not(:first-child)]:pr-4 lg:py-[5px] lg:gap-[18px] lg:min-w-[117px]"
+                     >    
+                        <span class="lg:text-[#848282]">{{ listItem[0].split(/(?=[A-Z])/).join(' ').replace(/(^\w|\s\w)/g, m => m.toUpperCase()) }}</span>
+                        <span> {{ listItem[1] }} </span>
+                     </li>
+                     
+                  </ul>
+               </div>
+            </section>
          </div>
-      </section>
 
-      <section class="player-summary">
-          <div class="palyer-summary_titl">
-          </div>
-
-          <div class="player-summary_deets">
-
-          </div>
-      </section>
-
-    </main>
-
-    <footerBar />
-  </div>
+         <footerBar />
+      </main>
+   </div>
 </template>
 
 <script>
   import client from '@/sanityConfig/index.js'
   const query = '*[_type == "fifaCard"]'
 
-  import imageUrlBuilder from '@sanity/image-url'
-import { setTimeout } from 'timers'
+  import imageUrlBuilder from '@sanity/image-url'  
   const builder = imageUrlBuilder(client)
 
 
@@ -88,10 +137,8 @@ import { setTimeout } from 'timers'
                //to search the returned players from sanity client and find the player
                const playerInView = players.filter(player => player.slug.current === this.player);
 
-               this.playerInView = playerInView
-               
-               console.log(playerInView.statistics)
-                   
+               this.playerInView = playerInView   
+               console.log(playerInView)                
             })
       },
 
@@ -103,11 +150,13 @@ import { setTimeout } from 'timers'
          },
 
          retouchedObject(atrrObject) {
+            //remove 'average' property and return object for iteration
             delete atrrObject.average;
             return atrrObject
          },
 
          retouchedStats(statsObject) {
+            //rearrage the players statsobject before iteration
             const retouchedStats = {
                'pace': statsObject.pace,
                'shooting': statsObject.shooting,
@@ -118,57 +167,30 @@ import { setTimeout } from 'timers'
             }
 
             return retouchedStats;
+         },
+
+         playerCompiledSummary(playerInView) {
+            //get property needed for iteration
+            const playerSummary = {
+               'club': playerInView.club,
+               'league': playerInView.league,
+               'nation': playerInView.nation,
+               'strongFoot': playerInView.strongFoot.replace(/(^\w|\s\w)/g, m => m.toUpperCase()),
+               //check if value is a regex or regular string before retuning manipulated value
+               'age': playerInView.age.slice(playerInView.age.lastIndexOf(' ') + 1) === "old"? playerInView.age.split(/\s+/).slice(0, 1).join(" ") : "N\\A",  
+               'height': playerInView.height,
+               'workrates': playerInView.workRatesAttacking + ' ' + '/' + ' ' + playerInView.workRatesDefensive
+            }
+
+            return playerSummary;
          }
-      },
-
-      updated() {
-         console.log('updated');
-      },
-
+      }
    }
 </script>
 
 <style lang="scss" scoped>
-   .attributes_list {
-      ul {
-         display: inline-block;
-         width: 102px;
-         min-width: 102px;
-         color: white;
-
-         li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12.5px 0px;
-
-            //ATTRIBUTE HEADINGS
-            &:nth-child(1) {
-               font-weight: 700;
-               font-size: 0.875rem; //14px
-               border-top: 2px solid white;
-               border-bottom: 2px solid white;
-               padding: 6px 0px;
-            }
-
-            &:nth-child(2) {
-               padding-top: 16px;
-            }
-
-            span {
-               display: inline-block;
-               font-weight: 700;
-
-               &:nth-child(1) {
-                  font-size: 0.625rem; //10px
-               }
-
-               &:nth-child(2) {
-                  font-size: 0.875rem; //14px
-               }
-            }
-         }
-      }
+   .attributes-board {
+      background: linear-gradient(180deg, #0F0F0F 0%, #161616 52.33%, #0D0D0D 100%);
    }
 </style>
 
